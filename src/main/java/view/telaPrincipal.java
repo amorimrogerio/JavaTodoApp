@@ -18,7 +18,7 @@ import util.ModeloTabelaTarefa;
 
 /**
  *
- * @author AdminRadio
+ * @author Rogerio Amorim
  */
 public class telaPrincipal extends javax.swing.JFrame {
 
