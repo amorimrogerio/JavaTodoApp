@@ -172,9 +172,9 @@ public class telaPrincipal extends javax.swing.JFrame {
             .addGroup(panelProjetosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelProjeto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelProjetoAdd)
-                .addGap(18, 18, 18))
+                .addGap(23, 23, 23))
         );
         panelProjetosLayout.setVerticalGroup(
             panelProjetosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,7 +246,7 @@ public class telaPrincipal extends javax.swing.JFrame {
             panelListaProjetosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelListaProjetosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelListaProjetosLayout.setVerticalGroup(
