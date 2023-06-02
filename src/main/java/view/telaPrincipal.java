@@ -372,22 +372,28 @@ public class telaPrincipal extends javax.swing.JFrame {
         var taskScreen = new telaCadTarefa(this, rootPaneCheckingEnabled);
         
         //-> pegar o projeto a qual a tarefa pertence
-        int projectIndex = listProjetos.getSelectedIndex();
+        int projectIndex = listProjetos.getSelectedIndex(); //-> return project index
         Project p = (Project) modeloProjeto.get(projectIndex);
         taskScreen.setP(p);
                
         //-> mostrar a tela
         taskScreen.setVisible(true);
         
-        /*
+        
         //-> add a listener for to monitor window closure
         taskScreen.addWindowListener(new WindowAdapter() {
-            public void windowClosed (WindowEvent e ) {    
+            @Override
+            public void windowClosed (WindowEvent e ) {    //-> what´s monitoring event ?
                 //-> to cat the index projects....
-         
+                Project p = (Project) modeloProjeto.get(projectIndex);
+                
+                // to load task list for project
+                carregaTarefas(p.getId());
+               
+                
             }
         });
-        */
+        
        
     }//GEN-LAST:event_jLabelTarefasAddMouseClicked
 
