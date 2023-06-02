@@ -17,6 +17,7 @@ public class ConnectionFactory {
     public static final String URL    = "jdbc:mysql://localhost:3306/todoapp";
     public static final String USER   = "root";
     public static final String PASS   = "7Exodo0108";
+    //teste
     
    public static Connection getConnection() {
        try {
