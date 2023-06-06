@@ -402,12 +402,32 @@ public class telaPrincipal extends javax.swing.JFrame {
         
         int lin = jTableTarefas.rowAtPoint(evt.getPoint());
         int col = jTableTarefas.columnAtPoint(evt.getPoint());
-        final int campoIsCompleted=3; //-> constante
+        Task tarefa = modeloTarefa.getTarefasList().get(lin);
+        //final int campoIsCompleted=3; //-> constante
         
         switch(col){
-            case 3:
-                Task tarefa = modeloTarefa.getTarefasList().get(lin);
+            case 3:  //-> botão tarefa concluída/não concluida
+                
                 bancoTarefa.update(tarefa);
+                break;
+                
+            case 5:  //-> botão para excluir
+                //-> pegar a tarefa correspondente
+                //Task t = modeloTarefa.getTarefasList().get(lin);
+                
+                //-> deletar a tarefa do banco
+                bancoTarefa.removeById(tarefa.getId());
+                
+                //-> tirar do controle
+                modeloTarefa.getTarefasList().remove(tarefa);
+                
+                //-> pegar o índice do projeto
+                int projIndex = listProjetos.getSelectedIndex();
+                Project p = (Project) modeloProjeto.get(projIndex);
+                
+                //-> carregar as tarefas existentes do projeto
+                carregaTarefas(p.getId());
+                               
                 break;
         }
     }//GEN-LAST:event_jTableTarefasMouseClicked
