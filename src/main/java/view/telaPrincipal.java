@@ -14,6 +14,7 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 import model.Project;
 import model.Task;
+import util.DeadLineColor;
 import util.ModeloTabelaTarefa;
 
 /**
@@ -35,10 +36,13 @@ public class telaPrincipal extends javax.swing.JFrame {
     
     public telaPrincipal() {
         initComponents();
-        decoracaoTabelaTarefas();
-        
+                
         iniciarControleBanco();
         iniciarModeloComponentes();
+        
+        decoracaoTabelaTarefas();
+        
+        
     }
 
     /**
@@ -510,7 +514,10 @@ public class telaPrincipal extends javax.swing.JFrame {
         jTableTarefas.getTableHeader().setForeground(new Color (255,255,255));
         
         //-> ordernar os dados de uma coluna ao clicar.
-        jTableTarefas.setAutoCreateRowSorter(true); 
+        //jTableTarefas.setAutoCreateRowSorter(true); 
+        
+        //-> mudando o renderizador de coluna
+        jTableTarefas.getColumnModel().getColumn(2).setCellRenderer(new DeadLineColor());
     }
 
     
