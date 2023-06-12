@@ -14,6 +14,7 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 import model.Project;
 import model.Task;
+import util.ButtonColumn;
 import util.DeadLineColor;
 import util.ModeloTabelaTarefa;
 
@@ -518,6 +519,19 @@ public class telaPrincipal extends javax.swing.JFrame {
         
         //-> mudando o renderizador de coluna
         jTableTarefas.getColumnModel().getColumn(2).setCellRenderer(new DeadLineColor());
+        
+        
+        //-> botão editar
+        //-> o nome do botão "edit" é o nome do arquivo físico na pasta "resource"
+        //   do projeto
+        jTableTarefas.getColumnModel().getColumn(4).
+                setCellRenderer(new ButtonColumn("edit"));  
+        
+        //-> botão excluir
+        //-> o nome do botão "delete" é nome do arquivo físico na pasta
+        //   "resource" do projeto
+        jTableTarefas.getColumnModel().getColumn(5).
+                setCellRenderer(new ButtonColumn("delete"));
     }
 
     
