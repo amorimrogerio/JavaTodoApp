@@ -145,21 +145,30 @@ public class telaCadProjetos extends javax.swing.JDialog {
         // TODO add your handling code here:
         
         try {
-            Project pproject = new Project();
-            pproject.setName(jTextFieldNome.getText());
-            pproject.setDescription(jTextPaneDescricao.getText());
-            pproject.setCreateAt(new Date());
-            pproject.setUpdateAt(new Date());
-            control.save(pproject);
-            //-> avisando...
-            JOptionPane.showMessageDialog(rootPane, "Projeto salvo com sucesso !");
+            
+            if ( !jTextFieldNome.getText().equals("")) {
+                Project pproject = new Project();
+                pproject.setName(jTextFieldNome.getText());
+                pproject.setDescription(jTextPaneDescricao.getText());
+                pproject.setCreateAt(new Date());
+                pproject.setUpdateAt(new Date());
+                control.save(pproject);
+                
+                //-> avisando...
+                JOptionPane.showMessageDialog(rootPane, "Projeto salvo com sucesso !");
+                
+                //-> fechar a janela após salvar
+                this.dispose();
+                
+            } else {
+                
+                JOptionPane.showMessageDialog(rootPane, "O nome não pode estar vazio !!!");
+            }
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "não deu certo :-("+e.getMessage());
         }
-            
-        
-        //-> fechar a janela após salvar
-        this.dispose();
+       
         
     }//GEN-LAST:event_jButtonGravarMouseClicked
 

@@ -171,33 +171,45 @@ public class telaCadTarefa extends javax.swing.JDialog {
     private void jButtonGravarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGravarMouseClicked
         // TODO add your handling code here:
         try {
-            var t = new Task();
-            t.setIdProject(p.getId() );
-            t.setName(jTextFieldNome.getText());
-            t.setDescription(jTextAreaDescricao.getText());
-            t.setNotes(jTextAreaNotas.getText());
-            t.setIsCompleted(false);
+            if ( !jTextFieldNome.getText().isEmpty() 
+                    && !jFormattedTextFieldPrazo.getText().isEmpty() ) {
+         
+                var t = new Task();
+                t.setIdProject(p.getId() );
+                t.setName(jTextFieldNome.getText());
+                t.setDescription(jTextAreaDescricao.getText());
+                t.setNotes(jTextAreaNotas.getText());
+                t.setIsCompleted(false);
             
-            //-> Tratamento de data
+                //-> Tratamento de data
             
-            //-> criando um formato do campo de data padrão
-            var sdf = new SimpleDateFormat("dd/MM/y");
-            //-> com base no formato acima, converter o texto para o formato.
-            Date dtPrazo = sdf.parse(jFormattedTextFieldPrazo.getText());
+                //-> criando um formato do campo de data padrão
+                var sdf = new SimpleDateFormat("dd/MM/y");
+                //-> com base no formato acima, converter o texto para o formato.
+                Date dtPrazo = sdf.parse(jFormattedTextFieldPrazo.getText());
             
-            t.setDeadLine(dtPrazo);
+                t.setDeadLine(dtPrazo);
             
-            //-> aqui a tarefa é salva....
-            control.save(t);
-            JOptionPane.showMessageDialog(rootPane, "Tarefa incluída com sucesso !!!");
+                //-> aqui a tarefa é salva....
+                control.save(t);
+                JOptionPane.showMessageDialog(rootPane, "Tarefa incluída com sucesso !!!");
+                
+                //-> fechar a tela de cadastro de tarefa
+                this.dispose();
+                
+            } else {
+                
+                JOptionPane.showMessageDialog(rootPane, "Campos estão "
+                        + "vazios, corrigir !!!");
+         
+            }
             
                 
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(rootPane, "não deu ;-("+e.getMessage());
         }
         
-        //-> fechar a tela de cadastro de tarefa
-        this.dispose();
+        
     }//GEN-LAST:event_jButtonGravarMouseClicked
 
     /**
